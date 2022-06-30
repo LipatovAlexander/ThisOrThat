@@ -15,7 +15,7 @@ export class UsersService {
     return await this.usersRepository.findOneBy({ username: username });
   }
 
-  async register(username: string, password: string): Promise<User> {
+  async create(username: string, password: string): Promise<User> {
     const salt = await bcrypt.genSalt();
     const hash = await bcrypt.hash(password, salt);
 
